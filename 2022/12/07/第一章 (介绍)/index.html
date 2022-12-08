@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/snow.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="雪落香杉树">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="介绍Vue 一种渐进式框架（会一点写一点，一点一点向上走），更容易上手  采用MVVM（Model-View-ViewModel）架构  View : 视图层  Model : 数据层  ViewModel : 业务逻辑层，数据和视图的桥梁      Vue2 对比 Vue3Api形式 vue2 : Options Api （选项式api）逻辑比较分散 可读性差 可维护性差  vue3 : Com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一章 (介绍）">
+<meta property="og:url" content="https://snowmid4.github.io/2022/12/07/%E7%AC%AC%E4%B8%80%E7%AB%A0%20(%E4%BB%8B%E7%BB%8D)/index.html">
+<meta property="og:site_name" content="雪落香杉树">
+<meta property="og:description" content="介绍Vue 一种渐进式框架（会一点写一点，一点一点向上走），更容易上手  采用MVVM（Model-View-ViewModel）架构  View : 视图层  Model : 数据层  ViewModel : 业务逻辑层，数据和视图的桥梁      Vue2 对比 Vue3Api形式 vue2 : Options Api （选项式api）逻辑比较分散 可读性差 可维护性差  vue3 : Com">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://snowmid4.github.io/img/image_VAxorzZVvS.png">
+<meta property="article:published_time" content="2022-12-07T08:39:05.000Z">
+<meta property="article:modified_time" content="2022-12-07T08:46:04.637Z">
+<meta property="article:author" content="雪落香杉树">
+<meta property="article:tag" content="Vue3">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://snowmid4.github.io/img/image_VAxorzZVvS.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>第一章 (介绍） - 雪落香杉树</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"snowmid4.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>雪落香杉树</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="第一章 (介绍）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-07 16:39" pubdate>
+          2022年12月7日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第一章 (介绍）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="介绍Vue"><a href="#介绍Vue" class="headerlink" title="介绍Vue"></a>介绍Vue</h1><ul>
+<li><p>一种渐进式框架（会一点写一点，一点一点向上走），更容易上手</p>
+</li>
+<li><p>采用MVVM（Model-View-ViewModel）架构</p>
+<ul>
+<li><p>View : 视图层</p>
+</li>
+<li><p>Model : 数据层</p>
+</li>
+<li><p>ViewModel : 业务逻辑层，数据和视图的桥梁</p>
+</li>
+</ul>
+<p><img src="/img/image_VAxorzZVvS.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<h1 id="Vue2-对比-Vue3"><a href="#Vue2-对比-Vue3" class="headerlink" title="Vue2 对比 Vue3"></a>Vue2 对比 Vue3</h1><h2 id="Api形式"><a href="#Api形式" class="headerlink" title="Api形式"></a>Api形式</h2><ul>
+<li><p>vue2 : <strong>Options Api</strong> （选项式api）逻辑比较分散 可读性差 可维护性差</p>
+</li>
+<li><p>vue3 : <strong>Composition Api</strong>（组合式api） 逻辑分明 可维护性高</p>
+</li>
+</ul>
+<h2 id="重写双向数据绑定"><a href="#重写双向数据绑定" class="headerlink" title="重写双向数据绑定"></a>重写双向数据绑定</h2><ul>
+<li><p>vue2 : 双向数据绑定是采用<strong>发布-订阅模式</strong>，结合<strong>Object.defineProperty(obj, prop, desc)</strong> 对数据进行相应的劫持。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>(object,<span class="hljs-string">&#x27;msg&#x27;</span>,&#123;<br>    <span class="hljs-title function_">get</span>(<span class="hljs-params"></span>)&#123;<span class="hljs-keyword">return</span> object&#125;,  <br>    <span class="hljs-title function_">set</span>(<span class="hljs-params">value</span>)&#123;<br>        <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;input&#x27;</span>).<span class="hljs-property">value</span> = value<br>        <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;content&#x27;</span>).<span class="hljs-property">innerHTML</span> = value<br>    &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>vue3 : 基于<strong>Proxy</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> proxyObj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(obj,&#123;<br>        get : <span class="hljs-keyword">function</span> (<span class="hljs-params">target,prop</span>) &#123;<br>            <span class="hljs-keyword">return</span> prop <span class="hljs-keyword">in</span> target ? target[prop] : <span class="hljs-number">0</span><br>        &#125;,<br>        set : <span class="hljs-keyword">function</span> (<span class="hljs-params">target,prop,value</span>) &#123;<br>            target[prop] = <span class="hljs-number">888</span>;<span class="hljs-comment">//prop是对象的key 会自动返回 不必for in 获取</span><br>        &#125;<br>    &#125;)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>优势：</p>
+<ul>
+<li><p>省去for in 循环来获取key值</p>
+</li>
+<li><p>代码更简化</p>
+</li>
+<li><p>可以监听数组变化</p>
+</li>
+<li><p>可以监听动态新增和删除的属性&amp;#x20;</p>
+</li>
+<li><p>可以监听数组的索引和 length 属性</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="优化了Vdom"><a href="#优化了Vdom" class="headerlink" title="优化了Vdom"></a>优化了Vdom</h2><ul>
+<li><p>vue2：每次更新<code>diff</code> 都是全量对比</p>
+</li>
+<li><p>vue3：只对比带有标记的，这样就大大减少了非动态内容的消耗</p>
+<ul>
+<li><p>patch flag 优化静态树</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//编译前</span><br>&lt;span&gt;<span class="hljs-title class_">Hello</span> world!&lt;/span&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Hello world!<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Hello world!<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Hello world!<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123;msg&#125;&#125;/span&gt;</span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Hello world!<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Hello world! <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br><br><span class="hljs-comment">//编译后</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">render</span>(<span class="hljs-params">_ctx，_cache，$props，$setup，$data，$options</span>)&#123;<span class="hljs-keyword">return</span> (<span class="hljs-title function_">_openBlock</span>(),<span class="hljs-title function_">_createBlock</span>(_Fragment,<span class="hljs-literal">null</span>，[<br><span class="hljs-title function_">_createvNode</span>( <span class="hljs-string">&quot;span&quot;</span>, <span class="hljs-literal">null</span>,<span class="hljs-string">&quot;Hello world ! &quot;</span>),<br><span class="hljs-title function_">_createvNode</span>( <span class="hljs-string">&quot;span&quot;</span>,<span class="hljs-literal">null</span>，<span class="hljs-string">&quot;Hello world! &quot;</span>),<br><span class="hljs-title function_">_createvNode</span>( <span class="hljs-string">&quot;span&quot;</span>，<span class="hljs-literal">null</span>，<span class="hljs-string">&quot;Hello world! &quot;</span>),<br><span class="hljs-title function_">_createvNode</span>( <span class="hljs-string">&quot;span&quot;</span>, <span class="hljs-literal">null</span>，<span class="hljs-string">&quot;Hello world! &quot;</span>),<br><span class="hljs-title function_">_createVNode</span>(<span class="hljs-string">&quot;span&quot;</span>, <span class="hljs-literal">null</span>，<span class="hljs-title function_">_toDisplaystring</span>(_ctx.<span class="hljs-property">msg</span>)，<span class="hljs-number">1</span><span class="hljs-comment">/* TEXT */</span>)，<br><span class="hljs-title function_">_createvNode</span>( <span class="hljs-string">&quot;span&quot;</span>, <span class="hljs-literal">null</span>，<span class="hljs-string">&quot;Hello world! &quot;</span>),<br><span class="hljs-title function_">_createvNode</span>( <span class="hljs-string">&quot;span&quot;</span>, <span class="hljs-literal">null</span>，<span class="hljs-string">&quot;Hello world! &quot;</span>)]，<span class="hljs-number">64</span><span class="hljs-comment">/*STABLE_FRAGMENT */</span>))<br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>新增了 patch flag 标记</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable constant_">TEXT</span> = <span class="hljs-number">1</span> <span class="hljs-comment">// 动态文本节点</span><br><span class="hljs-variable constant_">CLASS</span>=<span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">1</span>,<span class="hljs-number">1</span> <span class="hljs-comment">// 2//动态class</span><br><span class="hljs-variable constant_">STYLE</span>=<span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">2</span>，<span class="hljs-comment">// 4 //动态style</span><br><span class="hljs-variable constant_">PROPS</span>=<span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">3</span>,<span class="hljs-comment">// 8 //动态属性，但不包含类名和样式</span><br><span class="hljs-title class_">FULLPR0PS</span>=<span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">4</span>,<span class="hljs-comment">// 16 //具有动态key属性，当key改变时，需要进行完整的diff比较。</span><br><span class="hljs-variable constant_">HYDRATE_</span> <span class="hljs-variable constant_">EVENTS</span> = <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">5</span>，<span class="hljs-comment">// 32 //带有监听事件的节点</span><br><span class="hljs-variable constant_">STABLE</span> <span class="hljs-variable constant_">FRAGMENT</span> = <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">6</span>, <span class="hljs-comment">// 64 //一个不会改变子节点顺序的fragment</span><br><span class="hljs-variable constant_">KEYED_</span> <span class="hljs-variable constant_">FRAGMENT</span> = <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">7</span>, <span class="hljs-comment">// 128 //带有key属性的fragment 或部分子字节有key</span><br><span class="hljs-variable constant_">UNKEYED</span> <span class="hljs-variable constant_">FRAGMENT</span> = <span class="hljs-number">1</span>&lt;&lt; <span class="hljs-number">8</span>, <span class="hljs-comment">// 256 //子节点没有key 的fragment</span><br><span class="hljs-variable constant_">NEED</span> <span class="hljs-variable constant_">PATCH</span> = <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">9</span>, <span class="hljs-comment">// 512 //一个节点只会进行非props比较</span><br><span class="hljs-variable constant_">DYNAMIC_SLOTS</span> = <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">10</span> <span class="hljs-comment">// 1024 // 动态slot</span><br><span class="hljs-variable constant_">HOISTED</span> = -<span class="hljs-number">1</span> <span class="hljs-comment">// 静态节点</span><br><span class="hljs-variable constant_">BALL</span> = -<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>结论</p>
+<ul>
+<li><p>在创建动态dom元素的时候，Vdom除了模拟出了基本信息意外，还给他加了一个标记    1 &#x2F;* TEXT *&#x2F;   ，这个标记叫patch flag（补丁标记），</p>
+</li>
+<li><p>强大之处在于当diff算法走到 _createBlock 函数的时候，会忽略所有的静态节点，只对有标记的动态节点进行对比，而且在多层的嵌套下依然有效。</p>
+</li>
+<li><p>尽管 JavaScript 做 Vdom 的对比已经非常的快，但是 patch flag 的出现还是让 Vue3 的 Vdom 的性能得到了很大的提升，尤其是在针对大组件的时候</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h2><ul>
+<li><p>允许支持多个根节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"> &lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>23<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>支持render JSX写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> (<br>            <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span></span><br><span class="language-xml">                &#123;this.visable ? (</span><br><span class="language-xml">                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;this.obj.name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">                ) : (</span><br><span class="language-xml">                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;this.obj.price&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">                )&#125;</span><br><span class="language-xml">                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&#123;this.val&#125;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">input</span>&gt;</span></span><br><span class="language-xml">                &#123;[1, 2, 3].map((v) =&gt; &#123;</span><br><span class="language-xml">                   return <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;v&#125;-----<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>;</span><br><span class="language-xml">                &#125;)&#125;</span><br><span class="language-xml">            <span class="hljs-tag">&lt;/&gt;</span></span><br>        );<br>    &#125;,<br> <br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Tree-shaking"><a href="#Tree-shaking" class="headerlink" title="Tree shaking"></a>Tree shaking</h2><p>简单来讲，就是在保持代码运行结果不变的前提下，去除无用的代码</p>
+<h2 id="Composition-Api"><a href="#Composition-Api" class="headerlink" title="Composition Api"></a>Composition Api</h2><p>Setup 函数式编程 也叫vue Hook</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AC%94%E8%AE%B0/Vue3/" class="category-chain-item">Vue3</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Vue3/">#Vue3</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>第一章 (介绍）</div>
+      <div>https://snowmid4.github.io/2022/12/07/第一章 (介绍)/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>雪落香杉树</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/07/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20(Nvm%20Nrm%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%89/" title="第二章 (Nvm Nrm 使用教程）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第二章 (Nvm Nrm 使用教程）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/07/react-beautiful-dnd%20%E6%8B%96%E6%8B%BD%E5%8A%9F%E8%83%BD/" title="react-beautiful-dnd 拖拽功能">
+                        <span class="hidden-mobile">react-beautiful-dnd 拖拽功能</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
